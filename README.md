@@ -40,7 +40,7 @@ This repository documents my exploration of:
 | Foundation Models            | IBM Think                                    | ✅      |
 | Enterprise Foundation Models | Kate Soule Video                             | ✅      |
 | Open Source AI               | IBM Think                                    | ✅      |
-| Open Source LLMs             | IBM Think                                    | 🔄     |
+| Open Source LLMs             | IBM Think                                    | ✅     |
 
 ---
 
