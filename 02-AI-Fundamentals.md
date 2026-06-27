@@ -55,3 +55,17 @@ As someone coming from learning, capability building, and organizational transfo
 * How do foundation models differ architecturally from traditional machine learning models?
 * How do organizations practically implement responsible AI governance?
 * How do AI agents extend the capabilities of generative AI systems?
+
+## Personal Reflection
+
+One idea that stayed with me after studying AI fundamentals was Jonathan Adashek's observation that AI should not simply be added to existing ways of working.
+
+This led me to formulate a metaphor that resonated with me:
+
+> "AI isn't a garnish. It's an ingredient."
+
+A garnish decorates an existing dish. An ingredient changes the nature of the dish itself.
+
+I believe organizations that treat AI as an add-on may achieve incremental improvements, while organizations that redesign their operating models around AI may achieve transformational outcomes.
+
+This reinforced my view that AI adoption is fundamentally an organizational transformation challenge rather than merely a technology implementation exercise.
