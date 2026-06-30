@@ -101,7 +101,7 @@ I now ask:
 
 ## Visual Representation
 
-![One Prompt Four Models](./AI%20isn't%20a%20garnish.png)
+![One Prompt Four Models](./one-prompt-four-models.jpg)
 
 ---
 
