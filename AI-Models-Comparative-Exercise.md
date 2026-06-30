@@ -37,6 +37,14 @@ The models evaluated were:
 
 ---
 
+## Visual Representation
+
+![One Prompt Four Models](one-prompt-four-models.jpg)
+
+This exercise compared how four contemporary AI systems approached the same PMO problem.
+
+---
+
 ## What I Learned
 
 Although the recommendations produced by the models were remarkably similar, their approaches differed significantly.
@@ -96,14 +104,6 @@ Instead of asking:
 I now ask:
 
 > "Which AI model is best for this particular job?"
-
----
-
-## Visual Representation
-
-![One Prompt Four Models](one-prompt-four-models.jpg)
-
-This image summarizes the insight that emerged from my comparative exercise: although the recommendations were broadly similar, each model appeared to approach the problem with a different mindset.
 
 ---
 
