@@ -101,7 +101,7 @@ I now ask:
 
 ## Visual Representation
 
-![One Prompt Four Models](./one-prompt-four-models.jpg)
+![One Prompt Four Models](/one-prompt-four-models.jpg)
 
 ---
 
