@@ -101,7 +101,9 @@ I now ask:
 
 ## Visual Representation
 
-![One Prompt Four Models](/one-prompt-four-models.jpg)
+![One Prompt Four Models](one-prompt-four-models.jpg)
+
+This image summarizes the insight that emerged from my comparative exercise: although the recommendations were broadly similar, each model appeared to approach the problem with a different mindset.
 
 ---
 
@@ -117,21 +119,25 @@ Instead, I discovered that:
 For example:
 
 ### Perplexity
+
 - Evidence-oriented
 - Citation-heavy
-- Research focused
+- Research-focused
 
 ### Claude
+
 - Structured and analytical
 - Consulting-oriented
-- Governance aware
+- Governance-aware
 
 ### Gemini
+
 - Educational
 - Explanatory
 - Contextual
 
 ### ChatGPT
+
 - Action-oriented
 - Practical
 - Strategic and advisory
@@ -144,11 +150,9 @@ This exercise suggests that enterprise AI adoption may not be about selecting a 
 
 Instead, organizations may need to think in terms of an AI portfolio strategy, where different models serve different business purposes.
 
-Examples:
-
 | Business Need | Suitable Model Characteristics |
 |---------------|-------------------------------|
-| Research and fact finding | Search-oriented and evidence-based |
+| Research and fact-finding | Search-oriented and evidence-based |
 | Analysis and strategy | Structured and consultative |
 | Learning and enablement | Educational and explanatory |
 | Decision support and execution | Practical and action-oriented |
@@ -163,9 +167,7 @@ For transformation leaders, this means that AI platform selection should conside
 - Will enterprise organizations eventually standardize on a single model, or adopt multiple specialized models?
 - How should organizations evaluate AI systems beyond benchmark performance?
 
-## Visual Representation
-
-![One Prompt Four Models](./one-prompt-four-models.png)---
+---
 
 ## Personal Reflection
 
