@@ -52,18 +52,6 @@ An important nuance is that in older embedding models like CBOW and Skip-Gram, e
 
 ### How Semantic Search Works
 
-```
-Question
-    ↓
-Embedding
-    ↓
-Vector Database
-    ↓
-Similarity Search
-    ↓
-Relevant Results
-```
-
 The process involves:
 
 1. Converting the user's query into an embedding.
