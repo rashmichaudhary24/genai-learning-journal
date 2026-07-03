@@ -28,6 +28,9 @@ I also learned that vector representations are not limited to words. They can re
 * Semantic similarity
 * Distance and proximity
 * Context windows
+* Sliding windows
+* CBOW (Continuous Bag of Words)
+* Skip-Gram
 * Training embeddings
 * Semantic search
 
@@ -55,7 +58,7 @@ Words that frequently appear in similar contexts develop similar vector represen
 
 ## What Surprised Me
 
-Had never put together the fact that the next word prediction which Google and WhatsApp and iPhone have been doing for so long was fundamentally the same objective as ChatGPT and other LLMs.
+Had never put together the fact that the next-word prediction which Google and WhatsApp and iPhone have been doing for so long was fundamentally the same objective as ChatGPT and other LLMs.
 
 The difference is mostly one of scale, training, and capability, not the underlying objective.
 
@@ -69,21 +72,21 @@ The difference is mostly one of scale, training, and capability, not the underly
 
 Another surprising insight was that many AI capabilities I had thought of as separate technologies—recommendation engines, semantic search, RAG, clustering, similarity detection, and personalization—are all fundamentally built upon vector representations.
 
-I was also surprised to learn that one of the foundational ideas behind modern AI is remarkably simple: train a model to predict words from context, and semantic understanding emerges as a side effect.
-
 ---
 
-## My Understanding of Sliding Windows, CBOW and Skip-Gram
+## My Understanding of Sliding Windows, CBOW, and Skip-Gram
 
-A sliding window moves across a sentence and determines which words are considered the context and which word is the target.
+A sliding window moves across a sentence and determines which words are considered the context and which word is considered the target.
 
 For example, in the sentence:
 
 > The quick brown fox jumps over the lazy dog
 
-a sliding window can be used to generate multiple training examples.
+a sliding window can be used to generate multiple context-target training examples.
 
 **CBOW (Continuous Bag of Words)** learns by using the surrounding context words to predict the target word.
+
+In other words:
 
 > Given the neighbours, who is this word?
 
@@ -91,7 +94,11 @@ For example:
 
 > (The, quick, fox, jumps) → brown
 
-**Skip-Gram** learns by using the target word to predict the surrounding context words.
+CBOW treats the surrounding words together as a group and uses them to predict the missing or target word.
+
+**Skip-Gram** works in the opposite direction. It learns by using the target word to predict the surrounding context words.
+
+In other words:
 
 > Given this word, who are its neighbours?
 
