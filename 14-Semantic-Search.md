@@ -119,10 +119,6 @@ Relevant Results
 
   > "Which documents mean the same thing?"
 
-### Enterprise AI Perspective
-
-Semantic search can be thought of as the retrieval skeleton of many modern enterprise AI systems.
-
 ## What Surprised Me
 
 * Search engines historically relied much more heavily on exact keyword matching than I had realized.
