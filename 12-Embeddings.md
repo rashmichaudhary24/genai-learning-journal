@@ -177,14 +177,17 @@ This separation appears to be one of the key architectural ideas underlying mode
 
 ## Personal Reflection
 
-Before studying embeddings, I assumed that AI systems primarily understood language through words.
+Studying embeddings helped me understand several technologies that I use every day but had never really thought about.
 
-I now understand that they primarily operate on relationships between concepts represented mathematically.
+For example, I now have a much better understanding of why platforms such as Instagram are able to predict which reels I am likely to watch, or why online shopping platforms often recommend clothing styles, such as kurtis, that closely match my preferences.
 
-This realization fundamentally changed how I think about search, knowledge, and language itself.
+These systems are not simply matching keywords or relying on explicit rules. Instead, they are often representing users, products, and content as embeddings and identifying items that are located nearby in a high-dimensional semantic space.
 
-What appears to humans as "understanding" may, at least partially, emerge from the ability to represent and navigate relationships within high-dimensional spaces.
+This was one of the first times during my AI learning journey that I felt I could connect a technical concept directly to my own everyday experiences.
 
+It also reinforced an important realization:
+
+> Much of what we experience as "personalization" in modern digital systems is fundamentally a problem of measuring similarity between representations of people, preferences, and content.
 ---
 
 ## Key Takeaway
