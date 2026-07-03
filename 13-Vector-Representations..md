@@ -13,32 +13,23 @@ A vector representation is a list of numbers that encodes the meaning or charact
 
 Vector representations allow AI systems to work with meaning mathematically, enabling semantic search, retrieval, recommendations, clustering, and retrieval-augmented generation (RAG).
 
-Unlike traditional computing, where meaning is defined explicitly by humans, AI systems learn mathematical representations of meaning from data. This allows concepts with similar meanings to occupy nearby regions of a high-dimensional vector space.
+Unlike traditional computing, where meaning is explicitly defined by humans, AI systems learn mathematical representations of meaning from data. This allows concepts with similar meanings to occupy nearby regions of a vector space.
 
-I also learned that vector representations are not limited to words. They can represent documents, images, products, users, songs, videos, and even abstract concepts. Once represented as vectors, all of these can be compared, searched, grouped, and manipulated mathematically.
+I also learned that vector representations are not limited to words. They can represent documents, images, products, users, songs, videos, and even abstract concepts. Once represented as vectors, all of these can be searched, compared, grouped, and manipulated mathematically.
 
 ---
 
 ## Key Concepts Encountered
 
-* One-hot encoding
-* Dense vector representations
+* Vector representations
 * Word embeddings
 * Vector spaces
 * Dimensions
 * Semantic similarity
 * Distance and proximity
-* Cosine similarity
 * Context windows
 * Training embeddings
-* Word2Vec
-* Continuous Bag of Words (CBOW)
-* Skip-gram models
-* Vector arithmetic
 * Semantic search
-* Embedding models
-* Feature representations
-* High-dimensional spaces
 
 ---
 
@@ -48,17 +39,17 @@ I also learned that vector representations are not limited to words. They can re
 
 Just as latitude and longitude represent a physical location on Earth, vector representations provide coordinates for meaning in a conceptual space.
 
-### "You Shall Know a Word by the Company It Keeps"
-
-Words that frequently appear in similar contexts develop similar vector representations. For example, "doctor" and "physician" occupy nearby locations because they tend to appear in similar contexts.
-
 ### A Map of Concepts
 
-A vector space can be imagined as a map where related ideas cluster together. "Dog" is close to "puppy," "car" is close to "automobile," and unrelated concepts are farther apart.
+A vector space can be imagined as a map where related ideas cluster together. "Dog" is close to "puppy," "doctor" is close to "physician," and unrelated concepts are farther apart.
 
 ### Meaning as Geometry
 
 One of the most profound ideas I encountered is that meaning can be represented geometrically. Once meaning becomes geometry, AI systems can perform mathematical operations on meaning itself.
+
+### "You Shall Know a Word by the Company It Keeps"
+
+Words that frequently appear in similar contexts develop similar vector representations. For example, "doctor" and "physician" occupy nearby locations because they tend to appear in similar contexts.
 
 ---
 
@@ -78,6 +69,38 @@ The difference is mostly one of scale, training, and capability, not the underly
 
 Another surprising insight was that many AI capabilities I had thought of as separate technologies—recommendation engines, semantic search, RAG, clustering, similarity detection, and personalization—are all fundamentally built upon vector representations.
 
+I was also surprised to learn that one of the foundational ideas behind modern AI is remarkably simple: train a model to predict words from context, and semantic understanding emerges as a side effect.
+
+---
+
+## My Understanding of Sliding Windows, CBOW and Skip-Gram
+
+A sliding window moves across a sentence and determines which words are considered the context and which word is the target.
+
+For example, in the sentence:
+
+> The quick brown fox jumps over the lazy dog
+
+a sliding window can be used to generate multiple training examples.
+
+**CBOW (Continuous Bag of Words)** learns by using the surrounding context words to predict the target word.
+
+> Given the neighbours, who is this word?
+
+For example:
+
+> (The, quick, fox, jumps) → brown
+
+**Skip-Gram** learns by using the target word to predict the surrounding context words.
+
+> Given this word, who are its neighbours?
+
+For example:
+
+> brown → The, quick, fox, jumps
+
+The key insight is that by repeatedly predicting words from context (or context from words), AI systems automatically learn meaningful vector representations.
+
 ---
 
 ## Enterprise Implications
@@ -93,7 +116,6 @@ Enterprise applications include:
 * Retrieval-Augmented Generation (RAG)
 * Personalization engines
 * Document classification
-* Fraud detection
 * Similarity analysis
 * Memory systems for AI agents
 
@@ -107,7 +129,6 @@ Understanding vector representations helped me realize that embeddings and vecto
 * Why do some semantic relationships emerge naturally during training?
 * How do embedding models determine the number of dimensions to use?
 * How are vector representations updated as models continue learning?
-* Why does vector arithmetic sometimes produce surprisingly human-like relationships?
 * How do enterprise systems decide which embedding model to use?
 * What are the limitations of representing meaning geometrically?
 
