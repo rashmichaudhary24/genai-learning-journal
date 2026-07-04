@@ -4,11 +4,11 @@
 
 * Pinecone — *Retrieval-Augmented Generation (RAG)*
 * IBM Technology — *What is Retrieval-Augmented Generation (RAG)?*
-* NVIDIA: *What is Retrieval-Augmented Generation?*
+* NVIDIA — *What is Retrieval-Augmented Generation?*
 
 ---
 
-## What I Learned
+# What I Learned
 
 Large Language Models (LLMs) are powerful because they have been trained on vast amounts of publicly available data. However, foundation models have several limitations:
 
@@ -24,9 +24,9 @@ Large Language Models (LLMs) are powerful because they have been trained on vast
 
 ---
 
-## The Four Core Components of RAG
+# The Four Core Components of RAG
 
-### 1. The Knowledge Base
+## 1. The Knowledge Base
 
 The knowledge base is the external repository of information used by the RAG system. It may contain:
 
@@ -58,7 +58,7 @@ Choosing the right chunking strategy is therefore one of the most important fact
 
 ---
 
-### 2. The Retriever
+## 2. The Retriever
 
 The retriever:
 
@@ -74,7 +74,7 @@ Modern systems often use:
 
 ---
 
-### 3. The Integration (Augmentation) Layer
+## 3. The Integration (Augmentation) Layer
 
 The integration layer orchestrates the retrieval process by:
 
@@ -88,7 +88,7 @@ This stage effectively answers the question:
 
 ---
 
-### 4. The Generator
+## 4. The Generator
 
 The generator is a pre-trained generative AI model (such as GPT, Claude, Gemini, or Llama) that uses the augmented prompt to generate the final response.
 
@@ -101,7 +101,168 @@ Because the generator has access to retrieved context, it can produce responses 
 
 ---
 
-## The Five Stages of a RAG Workflow
+# Retrieval Pipelines
+
+A **retrieval pipeline** is the sequence of steps used to retrieve, filter, rank, and prepare information before it is sent to the LLM.
+
+A basic retrieval pipeline consists of:
+
+```text
+Knowledge Base
+       ↓
+Embedding Model
+       ↓
+Vector Database
+
+                    User Query
+                          ↓
+                  Retriever Model
+                          ↓
+                    Query Vector
+                          ↓
+                    Vector Search
+                          ↓
+                   Retrieved Chunks
+                          ↓
+                    Context Injection
+                          ↓
+                          LLM
+```
+
+More advanced pipelines often include:
+
+```text
+User Query
+      ↓
+Query Rewrite
+      ↓
+Retriever
+      ↓
+Hybrid Search
+      ↓
+Reranker
+      ↓
+Filtering / Validation
+      ↓
+Context Injection
+      ↓
+LLM
+```
+
+The quality of the retrieval pipeline frequently has a greater impact on system performance than the choice of LLM itself.
+
+---
+
+# Retriever Models
+
+A **Retriever Model** is a transformer-based embedding model that converts both documents and user queries into vectors within the same semantic vector space.
+
+Examples include:
+
+* Sentence Transformers
+* BGE
+* E5
+* OpenAI Embedding Models
+
+For example:
+
+```text
+"Paris is the capital of France"
+                    ↓
+            Retriever Model
+                    ↓
+          [0.12, 0.87, -0.43...]
+
+"What city is the Eiffel Tower in?"
+                    ↓
+            Retriever Model
+                    ↓
+          [0.14, 0.83, -0.46...]
+```
+
+Because the vectors are close in semantic space, the vector database can identify them as related.
+
+A common misconception is that the retriever model performs retrieval. In reality:
+
+* The **Retriever Model** creates embeddings.
+* The **Vector Database** performs similarity search.
+* The **Retriever Component** orchestrates the retrieval process.
+
+---
+
+# Context Injection
+
+**Context Injection** is the process of inserting retrieved information into the prompt sent to the LLM.
+
+Example:
+
+```text
+User Question:
+What is the company leave policy?
+
+Retrieved Context:
+Employees are entitled to 24 days of annual leave.
+
+Prompt Sent to LLM:
+
+Answer using the provided context.
+
+Context:
+Employees are entitled to 24 days of annual leave.
+
+Question:
+What is the company leave policy?
+```
+
+The effectiveness of context injection depends on:
+
+* Retrieval quality
+* Chunk size
+* Context ordering
+* Token limits
+* Context window size
+* The "Lost in the Middle" phenomenon
+
+Context injection is the mechanism through which RAG provides external knowledge to the model.
+
+---
+
+# Grounding
+
+**Grounding** is the process of constraining an LLM's responses using trusted external information rather than relying solely on its internal parametric knowledge.
+
+Without grounding:
+
+```text
+LLM:
+"I believe the revenue was approximately $3.4 billion."
+```
+
+With grounding:
+
+```text
+Retrieved Document:
+FY2025 Revenue: $2.9 billion
+
+LLM:
+According to the provided document,
+FY2025 revenue was $2.9 billion.
+```
+
+Grounding helps:
+
+* Reduce hallucinations
+* Improve factual accuracy
+* Increase explainability
+* Support citations and traceability
+* Improve trustworthiness
+* Support governance and compliance
+
+RAG is fundamentally a **grounding technique**.
+
+---
+
+# The Five Stages of a RAG Workflow
 
 ```text
 1. User submits a prompt
@@ -125,6 +286,7 @@ Chunking
 Embedding Model
     ↓
 Vector Database
+
                     User Query
                           ↓
                     Embedding Model
@@ -142,7 +304,7 @@ Vector Database
 
 ---
 
-## Advanced and Agentic RAG
+# Advanced and Agentic RAG
 
 Traditional RAG performs a single retrieval step.
 
@@ -156,7 +318,7 @@ Modern **Agentic RAG** systems may:
 * Perform reasoning over retrieved context
 * Aggregate results before generating a final answer
 
-For example:
+Example:
 
 ```text
 User Query
@@ -183,7 +345,7 @@ Agentic RAG is therefore not just about retrieving information but about decidin
 
 ---
 
-## RAG vs Fine-Tuning
+# RAG vs Fine-Tuning
 
 | RAG                              | Fine-Tuning                    |
 | -------------------------------- | ------------------------------ |
@@ -200,13 +362,13 @@ A useful mental model:
 
 ---
 
-## Benefits of RAG
+# Benefits of RAG
 
-* Access to **real-time information**
-* Access to **private and proprietary data**
-* More **accurate and relevant responses**
-* **Traceability and source citations**
-* Better **guardrails, governance, and compliance**
+* Access to real-time information
+* Access to private and proprietary data
+* More accurate and relevant responses
+* Traceability and source citations
+* Better guardrails, governance, and compliance
 * Reduced hallucinations
 * Greater data security
 * Lower implementation costs compared to fine-tuning
@@ -215,14 +377,18 @@ A useful mental model:
 
 ---
 
-## Key Concepts Encountered
+# Key Concepts Encountered
 
 * Hallucinations
 * Temperature
 * Ingestion
 * Data Chunking
 * Retrieval
+* Retrieval Pipelines
+* Retriever Models
 * Augmentation
+* Context Injection
+* Grounding
 * Semantic Search
 * Lexical Search
 * Hybrid Search
@@ -238,21 +404,21 @@ A useful mental model:
 
 ---
 
-## Mental Models / Analogies
+# Mental Models / Analogies
 
-### RAG as an Open-Book Exam
+## RAG as an Open-Book Exam
 
-* Traditional LLM:
+Traditional LLM:
 
-  > "Answer from memory."
+> "Answer from memory."
 
-* RAG:
+RAG:
 
-  > "First consult the textbook, then answer."
+> "First consult the textbook, then answer."
 
 ---
 
-### RAG as a Lawyer
+## RAG as a Lawyer
 
 ```text
 Client asks question
@@ -268,29 +434,30 @@ The lawyer isn't relying solely on memory; they consult authoritative sources be
 
 ---
 
-### Fine-Tuning vs RAG
+## Fine-Tuning vs RAG
 
-* **Fine-tuning:** Sending someone back to university to learn new information.
-* **RAG:** Giving them access to Google and a company knowledge portal.
+* Fine-tuning: Sending someone back to university to learn new information.
+* RAG: Giving them access to Google and a company knowledge portal.
 
 ---
 
-## What Surprised Me
+# What Surprised Me
 
 * Modern RAG systems may contain multiple AI models:
 
   * Embedding models
   * Query rewriting models
   * Reranking models
+  * Retriever models
   * Generative LLMs
 * Retrieval quality often matters more than the quality of the final LLM.
 * Chunking strategy can dramatically affect answer quality.
-* Enterprise AI systems increasingly use **hybrid search**, combining semantic and lexical search.
+* Enterprise AI systems increasingly use hybrid search.
 * AI agents are making RAG significantly more sophisticated than the original "retrieve then generate" architecture.
 
 ---
 
-## Enterprise Implications
+# Enterprise Implications
 
 RAG blends the broad capabilities of foundation models with an organization's proprietary knowledge. It is becoming essential for building accurate, relevant, and trustworthy enterprise AI applications.
 
@@ -306,7 +473,7 @@ to:
 
 ---
 
-## Common RAG Use Cases
+# Common RAG Use Cases
 
 * Enterprise chatbots
 * Virtual assistants
@@ -322,7 +489,7 @@ to:
 
 ---
 
-## Questions I Still Have
+# Questions I Still Have
 
 * How do organizations determine the optimal chunk size?
 * How do reranking models work internally?
@@ -333,10 +500,12 @@ to:
 
 ---
 
-## Personal Reflection
+# Personal Reflection
 
 Learning about RAG fundamentally changed how I think about enterprise AI. I initially assumed that improving AI systems primarily involved building larger or better models. I now understand that, in enterprise settings, the quality of the external knowledge architecture is often more important than the model itself.
 
 I was particularly surprised to discover that a modern RAG system can involve multiple specialized AI models working together—embedding models, retrieval systems, rerankers, agents, and generative LLMs—rather than a single "AI brain."
 
-Understanding RAG also helped me appreciate why enterprise AI initiatives increasingly focus on knowledge management, governance, retrieval quality, and orchestration rather than simply selecting the most powerful LLM. As AI agents become more autonomous, RAG appears likely to become a foundational capability for building trustworthy, explainable, and enterprise-ready AI systems.
+Understanding RAG also helped me appreciate why enterprise AI initiatives increasingly focus on knowledge management, governance, retrieval quality, grounding, and orchestration rather than simply selecting the most powerful LLM. As AI agents become more autonomous, RAG appears likely to become a foundational capability for building trustworthy, explainable, and enterprise-ready AI systems.
+
+---
