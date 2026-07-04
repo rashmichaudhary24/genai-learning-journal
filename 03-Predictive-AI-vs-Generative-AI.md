@@ -29,8 +29,8 @@ Examples of generative AI include:
 I also learned that generative AI systems are typically built using deep learning architectures such as:
 
 * Transformers
-* Generative Adversarial Networks (GANs)
-* Variational Autoencoders (VAEs)
+* Generative Adversarial Networks (GANs) (A deep learning architecture in which a generator creates fake data and a discriminator attempts to distinguish fake data from real data, causing both models to improve through competition.)
+* Variational Autoencoders (VAEs) (A generative deep learning model that learns a probability distribution of the training data and uses it to generate new, similar examples.)
 * Diffusion Models
 
 ## Concepts Encountered
