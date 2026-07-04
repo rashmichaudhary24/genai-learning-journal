@@ -32,7 +32,18 @@ A chunking strategy should be chosen based on:
   * Agentic workflows
 
 ---
+## Why Chunking Matters
 
+Chunking provides several important benefits in Retrieval-Augmented Generation (RAG) systems:
+
+* **It enables large documents and datasets to be processed despite context window limitations.**
+* **It improves retrieval precision** by allowing semantic search to operate on smaller, more focused units of information.
+* **It reduces latency and cost** by retrieving only the most relevant information instead of entire documents.
+* **It helps mitigate the "lost-in-the-middle" problem** by ensuring that important information occupies a larger proportion of the LLM's context window.
+* **It improves grounding and answer quality** by providing the model with more targeted and relevant context.
+
+Ultimately, chunking is not merely a preprocessing step; it is a strategy for representing knowledge in a way that enables effective retrieval and reasoning.
+---
 ## Chunking Methods
 
 ### 1. Fixed-Size Chunking
