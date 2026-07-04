@@ -4,7 +4,7 @@
 
 * Pinecone — *Retrieval-Augmented Generation (RAG)*
 * IBM Technology — *What is Retrieval-Augmented Generation (RAG)?*
-* NVIDIA: What is Retrieval-Augmented Generation?
+* NVIDIA: *What is Retrieval-Augmented Generation?*
 
 ---
 
