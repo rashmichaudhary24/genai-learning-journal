@@ -30,6 +30,7 @@ The article also introduced Generative AI as a further application of deep learn
 * Responsible AI
 * AI Governance
 * Narrow AI vs AGI
+Narrow AI (today's task-specific AI systems) vs AGI (hypothetical human-level general intelligence)
 
 ## What Surprised Me
 
