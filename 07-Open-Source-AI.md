@@ -2,7 +2,7 @@
 
 ## Resource(s) Studied
 
-- ✅ IBM Think – *What Is Open Source AI?*
+- IBM Think – *What Is Open Source AI?*
 
 ---
 
