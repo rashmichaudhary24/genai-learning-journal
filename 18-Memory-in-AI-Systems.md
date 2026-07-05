@@ -8,24 +8,48 @@
 
 ## What I Learned
 
-LLMs are inherently stateless. They do not "remember" previous interactions unless an external memory mechanism is provided. Memory is therefore usually implemented as an architectural layer around the the model.
+Large Language Models (LLMs) are inherently **stateless**. They do not remember previous interactions unless memory is implemented externally.
 
-**Memory = Store + Retrieve + Inject**
+In practice:
 
-AI memory can be understood as a stack of memory layers that allow systems to retain and reuse information across interactions.
+> **Memory = Store + Retrieve + Inject**
 
-| Human Memory      | AI Equivalent                          |
-| ----------------- | -------------------------------------- |
-| Working Memory    | Context window/current conversation    |
-| Episodic Memory   | Previous interactions and experiences  |
-| Semantic Memory   | Facts, knowledge, user preferences     |
-| Procedural Memory | Skills, workflows, tool usage patterns |
+This means that information must:
 
-### The Five Layers of AI Memory
+1. Be stored somewhere,
+2. Be retrieved when needed,
+3. Be injected into the model's context window.
 
-#### 1. Context Window (Working Memory)
+Modern AI systems therefore behave less like standalone models and more like **memory orchestration systems wrapped around foundation models**.
 
-```
+---
+
+## Two Ways of Understanding AI Memory
+
+### 1. Traditional Psychology-Inspired Memory Taxonomy
+
+This classifies memory by the **type of information being remembered**, borrowing concepts from human cognition.
+
+| Human Memory          | AI Equivalent                         | Example                                      |
+| --------------------- | ------------------------------------- | -------------------------------------------- |
+| **Working Memory**    | Context window                        | Information currently loaded into the prompt |
+| **Episodic Memory**   | Previous interactions and experiences | Earlier conversations with a user            |
+| **Semantic Memory**   | Facts, knowledge, preferences         | Company policies, user preferences           |
+| **Procedural Memory** | Skills and workflows                  | Tool usage patterns, agent workflows         |
+
+---
+
+### 2. Modern AI Memory Architecture (Amir Elion's Five Layers)
+
+This classifies memory by **where information is stored and how it is used**.
+
+---
+
+## The Five Layers of AI Memory
+
+### 1. Context Window (Working Memory)
+
+```text
 Current prompt
         ↓
 Loaded into context window
@@ -37,164 +61,227 @@ Used for current response only
 
 * Temporary
 * Limited by token size
-* Lost after inference completes
+* Exists only during inference
 
 **Example:**
-A ChatGPT conversation currently loaded into the model's context window.
+When ChatGPT answers a question, it can only use the information currently loaded into its context window.
+
+**Human Analogy:**
+What you are actively thinking about right now.
 
 ---
 
-#### 2. Conversation Memory (Session Memory)
+### 2. Conversation Memory (Session Memory)
 
-```
+```text
 Conversation history
         ↓
-Stored within session
+Stored during session
         ↓
 Retrieved when needed
 ```
 
 **Characteristics:**
 
-* Exists within a chat/session
-* Persists longer than the context window
-* May exceed the context window size
+* Persists throughout a conversation
+* Can exceed the context window
 * Portions are selectively loaded into working memory
 
 **Example:**
-An AI assistant remembering what was discussed earlier in the same conversation.
+ChatGPT remembering that earlier in this conversation we discussed the difference between context windows and conversation memory.
+
+**Human Analogy:**
+Notes from today's meeting.
 
 ---
 
-#### 3. Persistent Memory
+### 3. Persistent Memory
 
-```
-User preferences
+```text
+User information
         ↓
-Stored permanently
+Stored across sessions
         ↓
-Retrieved across sessions
+Retrieved in future conversations
 ```
 
 **Characteristics:**
 
-* Survives across conversations
-* Stores preferences, profiles, and behavioural patterns
-* User-specific
+* Survives beyond individual sessions
+* Stores preferences, profiles, and long-term information
+* Supports personalization
 
 **Example:**
-ChatGPT remembering a user's preferred writing style or profession.
+An AI assistant remembering that a user prefers concise explanations or works in Learning & Development.
+
+**Human Analogy:**
+Things you know about a close friend.
 
 ---
 
-#### 4. Knowledge Base Memory (RAG)
+### 4. Knowledge Base Memory (RAG)
 
-```
+```text
 External documents
         ↓
-Embedding + Vector Database
+Embeddings
         ↓
-Retrieve relevant information
+Vector database
+        ↓
+Retrieve relevant chunks
         ↓
 Inject into context
 ```
 
 **Characteristics:**
 
-* External to the model
-* Supports factual recall
-* Dynamically retrieved
+* Exists outside the model
+* Supports factual retrieval
+* Enables access to large knowledge repositories
 
 **Example:**
-A company chatbot searching internal policies and manuals.
+A company chatbot searching HR policies or product documentation.
+
+**Human Analogy:**
+Looking something up in a library.
 
 ---
 
-#### 5. Procedural Memory (Skills & Instructions)
+### 5. Procedural Memory (Skills & Instructions)
 
-```
+```text
 Instructions
         ↓
-Rules/workflows
+Rules and workflows
         ↓
-Consistent behaviour
+Consistent execution
 ```
 
 **Characteristics:**
 
 * Stores how to perform tasks
-* Encodes workflows and reasoning patterns
-* Shapes agent behaviour
+* Encodes workflows and behavioural patterns
+* Governs agent actions
 
 **Example:**
-An AI agent knowing how to escalate incidents or execute a multi-step workflow.
+An AI agent following the process:
+Retrieve → Validate → Summarize → Escalate.
+
+**Human Analogy:**
+Knowing how to ride a bicycle.
 
 ---
 
 ## Key Concepts Encountered
 
 * LLMs are stateless by default.
-* Memory is implemented outside the foundation model.
-* Context window and conversation memory are not the same thing.
+* Memory is usually implemented outside the model.
+* Context window and conversation memory are different concepts.
+* Conversation memory is stored information; the context window is accessible information.
 * Retrieval-Augmented Generation (RAG) functions as long-term semantic memory.
 * Persistent memory enables personalization.
-* Procedural memory stores "how to do things" rather than facts.
-* Effective AI systems combine multiple memory layers.
-* Memory systems require mechanisms for storage, retrieval, ranking, summarization, and injection into context.
+* Procedural memory stores behaviour rather than facts.
+* AI agents rely on orchestrating multiple memory systems simultaneously.
 
 ---
 
 ## Mental Models / Analogies
 
-| AI Memory Layer      | Human Analogy                         |
-| -------------------- | ------------------------------------- |
-| Context Window       | What you are currently thinking about |
-| Conversation Memory  | Notes from today's meeting            |
-| Persistent Memory    | Things you know about a friend        |
-| Knowledge Base (RAG) | Looking something up in a library     |
-| Procedural Memory    | Knowing how to ride a bicycle         |
+### The Notebook Analogy
 
-Another useful model:
+```text
+Conversation Memory = The entire notebook
 
-```
-Conversation Memory = The notebook
 Context Window = The pages currently open on your desk
+```
+
+### Human Brain Analogy
+
+```text
+Working Memory    = What you're thinking about now
+Episodic Memory   = Your experiences
+Semantic Memory   = Facts you know
+Procedural Memory = Skills you've learned
+```
+
+### Enterprise AI Analogy
+
+```text
+LLM            = The employee
+Memory Systems = The employee's notebook,
+                 filing cabinet,
+                 library,
+                 and standard operating procedures
 ```
 
 ---
 
 ## What Surprised Me
 
-* Conversation history and context window are separate concepts.
-* Most AI memory does not exist inside the LLM itself.
-* RAG can be considered a form of long-term memory.
-* Procedural memory is not factual knowledge; it represents behaviour and workflows.
-* Enterprise AI systems are primarily memory orchestration systems built around stateless LLMs.
+* Most AI memory does not reside inside the LLM itself.
+* Conversation history and context windows are separate concepts.
+* RAG can be viewed as a form of long-term semantic memory.
+* Procedural memory stores "how to do things" rather than factual information.
+* Modern AI systems are fundamentally memory orchestration systems.
 
 ---
 
 ## Enterprise Implications
 
-* Without memory, every AI interaction starts from zero.
-* Memory creates cumulative organizational intelligence.
-* Persistent memory improves personalization and productivity.
-* RAG enables enterprise knowledge management without retraining models.
-* Procedural memory supports repeatable business workflows and AI agents.
-* Memory introduces governance, privacy, compliance, and security risks.
-* Organizations that deliberately design memory architectures gain a compounding advantage from AI.
+Without memory:
+
+```text
+Question
+    ↓
+Start from zero
+    ↓
+Answer
+```
+
+With memory:
+
+```text
+Question
+    ↓
+Retrieve prior context
+    ↓
+Retrieve knowledge
+    ↓
+Apply procedures
+    ↓
+Generate answer
+```
+
+Benefits:
+
+* Reduced repetition
+* Better personalization
+* Organizational knowledge retention
+* More capable AI agents
+* Improved productivity
+
+Risks:
+
+* Privacy concerns
+* Security breaches
+* Governance challenges
+* Compliance requirements
+* Incorrect or stale memories
+
+Organizations that deliberately design what to remember, where to store it, and how to retrieve it gain a compounding advantage from AI.
 
 ---
 
 ## Questions I Still Have
 
-* How are memories ranked and prioritized for retrieval?
-* How do agents decide what information should be stored permanently?
-* How is memory decay or forgetting implemented?
+* How do AI systems decide what information deserves long-term storage?
+* How are memories ranked and retrieved?
+* How is forgetting or memory decay implemented?
 * How do multi-agent systems share memory safely?
-* What are the best enterprise patterns for balancing personalization and privacy?
+* What are the best enterprise architectures for balancing personalization and privacy?
 
 ---
 
 ## Personal Reflection
 
-This article helped me understand that "memory" in AI is not a single capability but an architectural stack. The LLM itself remains largely stateless, while intelligence emerges from combining multiple memory systems: working memory (context), conversational memory, persistent user memory, external knowledge retrieval, and procedural instructions. This explains why modern AI agents are better understood as memory orchestration systems wrapped around foundation models.
+This article fundamentally changed how I think about AI memory. I initially assumed that memory was a single capability inside the model. Instead, I now understand that modern AI systems implement multiple memory layers around a largely stateless LLM. Intelligence emerges not just from the model itself, but from the interaction between working memory, conversation history, persistent user memory, retrieval systems, and procedural instructions.
