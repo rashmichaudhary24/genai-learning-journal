@@ -7,7 +7,7 @@
 ## What I Learned
 
 * The primary difference between traditional language models and Large Language Models (LLMs) is scale, including both the number of parameters and the amount of training data.
-* Transformers represented a major breakthrough compared with earlier architectures such as recurrent neural networks (RNNs) because their self-attention mechanism enables them to capture relationships between tokens while allowing computations to be performed in parallel.
+* Transformers represented a major breakthrough compared with earlier architectures such as recurrent neural networks (RNNs) because their self-attention mechanism enables them to capture relationships between tokens while allowing computations to be performed in parallel. Self-attention figures out what the sentence means; next-token prediction uses that understanding to guess what comes next. 
 * Embeddings convert text into numerical vector representations that capture semantic and syntactic relationships.
 * Self-supervised learning creates training labels automatically from unlabeled data, allowing models to learn without requiring human annotation.
 * LLMs sometimes produce hallucinations because they generate statistically probable outputs rather than verifying factual accuracy.
