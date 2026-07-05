@@ -121,10 +121,7 @@ We write validation logic ourselves.
 Examples:
 
 * Exact match
-* Regex matching
 * JSON schema validation
-* String comparison
-* Programmatic assertions
 
 Mental model:
 
