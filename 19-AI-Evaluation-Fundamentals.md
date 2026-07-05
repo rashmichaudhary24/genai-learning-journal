@@ -3,8 +3,6 @@
 ## Resources Studied
 
 * Pinecone — *Evaluating RAG Systems*
-* Pinecone — *Evaluation Measures in Information Retrieval*
-* OpenAI Cookbook — *Getting Started with OpenAI Evals*
 * OpenAI Cookbook — *Evaluation Best Practices*
 
 ---
