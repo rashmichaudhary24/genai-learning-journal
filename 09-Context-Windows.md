@@ -1,9 +1,5 @@
 # What are Context Windows?
 
-## Executive Summary
-
-A context window is essentially an LLM's working memory during inference. While larger context windows enable more sophisticated enterprise use cases, they also introduce trade-offs around cost, latency, security, and governance. Features such as Retrieval Augmented Generation (RAG) can help extend a model's effective knowledge access, but retrieved information still consumes context window capacity. Therefore, context window size is not merely a technical specification—it is also an enterprise architecture, risk, and adoption consideration.
-
 ## Resource(s) Studied
 
 * IBM Think – *What is a Context Window?*
@@ -34,6 +30,8 @@ A context window is essentially an LLM's working memory during inference. While 
 * Larger context windows do not automatically result in better performance or better business outcomes.
 * Context windows are relevant to transformer-based architectures, which underpin most modern generative AI systems.
 * Transformer architectures are not limited to language models; some image-generation models also use attention mechanisms.
+
+A context window is essentially an LLM's working memory during inference. While larger context windows enable more sophisticated enterprise use cases, they also introduce trade-offs around cost, latency, security, and governance. Features such as Retrieval Augmented Generation (RAG) can help extend a model's effective knowledge access, but retrieved information still consumes context window capacity. Therefore, context window size is not merely a technical specification—it is also an enterprise architecture, risk, and adoption consideration.
 
 ## Concepts Encountered
 
