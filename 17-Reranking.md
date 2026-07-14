@@ -80,7 +80,11 @@ Preparing for an interview resembles a bi-encoder retrieval system. I prepare nu
 
 If the interviewer allowed me to consult my preparation notes, I could compare the actual question against several candidate answers before responding. This resembles how a cross-encoder reranker compares a query and retrieved chunks together to determine true relevance.
 
-### Bihar Examination Strategy and "Lost in the Middle"
+### The Classic Indian Exam Strategy and "Lost in the Middle"
+
+![The Classic Indian Exam Strategy and Lost in the Middle](images/lost-in-the-middle.png)
+
+A humorous analogy for the "Lost in the Middle" phenomenon comes from the classic Indian examination strategy...
 
 A humorous analogy for the "Lost in the Middle" phenomenon comes from a common examination strategy: students write an excellent introduction and conclusion because they know examiners tend to focus on the beginning and end of long answers. Similarly, LLMs often pay disproportionate attention to information appearing at the start or end of a context window.
 
