@@ -71,4 +71,4 @@ A garnish decorates an existing dish. An ingredient changes the nature of the di
 
 I believe organizations that treat AI as an add-on may achieve incremental improvements, while organizations that redesign their operating models around AI may achieve transformational outcomes.
 
-![AI isn't a garnish. It's an ingredient.]!(images/AI isn't a garnish.png)
+![AI isn't a garnish. It's an ingredient.](images/AI isn't a garnish.png)
