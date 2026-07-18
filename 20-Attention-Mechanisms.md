@@ -63,7 +63,7 @@ The Keys of all tokens are compared with this Query using a dot product. Higher 
 
 The resulting attention pattern can be visualised as follows.
 
-![Self-Attention Matrix](images/self_attention_matrix.png)
+![Self-Attention Matrix](images/self-attention-matrix.png)
 
 Once the attention weights have been computed, the corresponding Value vectors are combined to produce a new **contextual representation** for **gown**.
 
@@ -89,7 +89,7 @@ Cross-attention extends the same idea by allowing Queries from one sequence to a
 
 For example, during translation:
 
-![Cross-Attention Matrix](images/cross_attention_matrix.png)
+![Cross-Attention Matrix](images/cross-attention-matrix.png)
 
 Unlike self-attention, the two axes represent different sequences.
 
