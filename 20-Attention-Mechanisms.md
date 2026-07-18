@@ -95,7 +95,7 @@ Unlike self-attention, the two axes represent different sequences.
 
 Each round of attention enriches every token with information gathered from other tokens. In the next layer, these richer representations interact again, allowing context to accumulate progressively. Over many Transformer layers, this iterative refinement enables the model to capture increasingly abstract concepts such as sentiment, tone, writing style and relationships between ideas.
 
-Attention is also one of the key reasons Transformers scale well because all Query-Key comparisons can be be computed in parallel.
+Attention is also one of the key reasons Transformers scale well because all Query-Key comparisons can be computed in parallel.
 
 ---
 
