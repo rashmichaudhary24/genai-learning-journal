@@ -33,13 +33,11 @@ It is important to understand that attention does **not** create new information
 
 # Why Was It Invented?
 
-Earlier sequence models such as RNNs and LSTMs attempted to compress an entire sentence into a single fixed representation before generating an output. As sentences became longer, this compressed representation struggled to preserve all of the important information.
+Earlier language models struggled to retain information from long pieces of text. As sequences became longer, important context was gradually lost, making it difficult to capture relationships between words that were far apart.
 
-Attention removed this bottleneck.
+Attention solved this problem by allowing every token to directly gather information from whichever parts of the sequence are most relevant, regardless of how far away those tokens appear.
 
-Instead of forcing every piece of information through a single vector, each token can directly gather information from whichever parts of the sequence are most relevant to it, regardless of how far away those tokens appear.
-
-This made it possible for models to capture long-range relationships while also enabling much greater parallelism during training.
+This not only improved the model's ability to understand long-range relationships but also made it possible to process all tokens in parallel, greatly increasing training efficiency.
 
 ---
 
