@@ -216,7 +216,7 @@ The resulting compatibility scores can be visualised as an attention matrix.
 
 ![Self-Attention Matrix](images/self-attention-matrix.png)
 
-Each cell in the matrix represents how strongly one token attends to another. Darker cells indicate higher attention weights, meaning those tokens contribute more information when constructing the new contextual embedding.
+Each cell in the matrix represents how strongly one token attends to another. Larger dots indicate higher Query–Key dot products. After scaling and applying Softmax, these produce higher attention weights, allowing those tokens to contribute more information to the new contextual embedding.
 
 Although the diagram focuses on a single token, the same computation is performed simultaneously for every token in the sequence.
 
