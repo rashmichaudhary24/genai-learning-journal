@@ -281,8 +281,6 @@ Using multiple attention heads allows the model to capture many different patter
 
 ## Cross-Attention
 
-## Cross-Attention
-
 Everything discussed so far describes **self-attention**, where every token attends to other tokens within the **same sequence**.
 
 **Cross-attention** uses the same attention mechanism but applies it **between two different sequences**. Instead of asking, *"Which words in my own sentence should I pay attention to?"*, the model asks, *"Which words in the other sentence are most relevant to what I'm generating?"*
@@ -297,7 +295,7 @@ Notice that each English word attends most strongly to the French word that prov
 
 Unlike self-attention, where both axes represent the same sequence, cross-attention connects **two different sequences**. The **Queries** come from the decoder (the sentence being generated), while the **Keys** and **Values** come from the encoder (the source sentence). This allows the decoder to look back at the encoded source sentence as it generates the translation, one word at a time.
 
----
+Unlike decoder self-attention, **cross-attention does not use causal masking**. The decoder is free to attend to **every token in the encoded source sentence**, because the entire input sentence is already available before translation begins. The only masking required during translation occurs in the decoder's self-attention layer, where future output tokens must remain hidden.
 ---
 
 ## Building Richer Representations
