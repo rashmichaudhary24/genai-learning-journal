@@ -296,6 +296,7 @@ Notice that each English word attends most strongly to the French word that prov
 Unlike self-attention, where both axes represent the same sequence, cross-attention connects **two different sequences**. The **Queries** come from the decoder (the sentence being generated), while the **Keys** and **Values** come from the encoder (the source sentence). This allows the decoder to look back at the encoded source sentence as it generates the translation, one word at a time.
 
 Unlike decoder self-attention, **cross-attention does not use causal masking**. The decoder is free to attend to **every token in the encoded source sentence**, because the entire input sentence is already available before translation begins. The only masking required during translation occurs in the decoder's self-attention layer, where future output tokens must remain hidden.
+
 ---
 
 ## Building Richer Representations
