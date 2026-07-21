@@ -105,7 +105,7 @@ These scores are converted into a probability distribution, indicating how likel
 
 The model then selects (or samples) the next token from this distribution.
 
-How these scores are converted into a probability distribution is explained in the Attention Mechanisms note..
+How these scores are converted into a probability distribution is explained in the Attention Mechanisms note.
 
 ---
 
@@ -168,7 +168,7 @@ A Transformer is one neural network architecture composed of many layers.
 
 Not exactly.
 
-Attention was introduced to better model relationships between tokens.
+Attention was introduced to help the model understand relationships between tokens.
 
 The ability to process tokens in parallel is a major advantage that follows from this design.
 
