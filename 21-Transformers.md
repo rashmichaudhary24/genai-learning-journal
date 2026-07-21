@@ -69,18 +69,11 @@ Each token is converted into an embedding—a dense numerical vector that captur
 ### Step 3 — Encoder Stack
 
 The sequence of embeddings passes through multiple encoder layers.
-
 Each encoder layer contains:
-
-* Multi-Head Self-Attention
-* Feed Forward Network
-* Residual Connections
-* Layer Normalization
-
+Multi-Head Self-Attention
+Feed Forward Network
 The self-attention mechanism allows every token to gather relevant information from the other tokens.
-
 The feed-forward network then processes each token independently, enriching its representation without exchanging information between tokens.
-
 Each successive encoder layer produces a richer contextual understanding than the previous one.
 
 ---
