@@ -99,7 +99,13 @@ Like the encoder, multiple decoder layers progressively improve the representati
 
 ### Step 5 — Prediction
 
-The final decoder representation is transformed into scores for every token in the model's vocabulary. These scores are then converted into probabilities before the next token is selected.
+The final decoder representation is used to assign a score to every token in the model's vocabulary.
+
+These scores are converted into a probability distribution, indicating how likely the model thinks each possible next token is.
+
+The model then selects (or samples) the next token from this distribution.
+
+How these scores are converted into a probability distribution is explained in the Attention Mechanisms note..
 
 ---
 
