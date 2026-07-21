@@ -10,7 +10,7 @@
 
 ## In One Sentence
 
-The Transformer is a deep learning architecture that processes information using attention instead of recurrence, allowing it to understand relationships between tokens efficiently and in parallel.
+The Transformer is a deep learning architecture that uses attention to understand relationships between tokens and process many tokens in parallel.
 
 ---
 
