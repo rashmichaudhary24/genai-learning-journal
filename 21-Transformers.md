@@ -27,17 +27,12 @@ Input
    ↓
 Embedding
    ↓
-Positional Encoding
-   ↓
 Multiple Encoder Layers
    ↓
 Multiple Decoder Layers
    ↓
-Linear Layer
-   ↓
-Softmax
-   ↓
 Output
+
 ```
 
 Modern Large Language Models such as GPT are based on the Transformer architecture but typically use only the decoder stack.
@@ -128,13 +123,7 @@ Like the encoder, multiple decoder layers progressively improve the representati
 
 ### Step 5 — Prediction
 
-The final decoder representation is projected into a vector whose length equals the model's vocabulary size.
-
-Each value (called a logit) represents the model's score for one possible next token.
-
-Softmax converts these logits into a probability distribution.
-
-The model then selects (or samples) the next token.
+The final decoder representation is transformed into scores for every token in the model's vocabulary. These scores are then converted into probabilities before the next token is selected.
 
 ---
 
