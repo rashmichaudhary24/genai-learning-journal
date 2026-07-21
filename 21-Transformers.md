@@ -45,7 +45,7 @@ Earlier language models processed tokens one at a time.
 
 This made training slower and made it difficult for models to capture relationships between words that were far apart in a sentence.
 
-The Transformer introduced the attention mechanism, allowing every token to directly examine every other relevant token.
+The Transformer introduced the attention mechanism, allowing every token to directly examine every other relevant token. 
 
 Because many tokens can be processed simultaneously, Transformers are highly parallelizable during training.
 ---
