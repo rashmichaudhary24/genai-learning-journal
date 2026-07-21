@@ -61,23 +61,8 @@ Depending on the application, these could represent words, subwords, characters,
 
 ### Step 2 — Embeddings
 
-Each token is converted into a dense numerical vector called an embedding.
-
-These embeddings capture semantic meaning.
-
-For example,
-
-```
-Embedding(King)
-− Embedding(Man)
-+ Embedding(Woman)
-
-≈ Embedding(Queen)
-```
-
-This demonstrates that certain directions within embedding space capture meaningful relationships such as gender.
-
-(See the Embeddings note.)
+Each token is converted into an embedding—a dense numerical vector that captures its meaning. These embeddings become the input to the Transformer.
+(See the Embeddings note for an explanation of how embeddings capture semantic relationships.)
 
 ---
 
