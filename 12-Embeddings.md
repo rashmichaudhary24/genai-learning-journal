@@ -125,7 +125,18 @@ Even if two books use different words, they may still be placed close together b
 Several ideas surprised me:
 
 - Two documents discussing the same concept may have very different keywords but nearly identical embeddings.
-- Embeddings capture relationships mathematically rather than linguistically.
+- Another thing that surprised me was that embeddings don't just group similar words together—they also capture relationships between them.
+
+For example, the difference between the vectors for **woman** and **man** is very similar to the difference between **queen** and **king**. In other words, one direction in the embedding space represents the concept of gender.
+
+A classic example is:
+
+> **E(Mother) ≈ E(Father) + E(Woman) − E(Man)**
+
+This shows that if we start with the embedding for **Father** and move in the same direction that transforms **Man** into **Woman**, we end up very close to the embedding for **Mother**.
+
+I found it fascinating that these relationships are **learned automatically from data rather than explicitly programmed**. The model discovers these patterns simply by learning from how words are used together.
+
 - Similarity can be measured numerically using distance metrics.
 - Modern AI systems often retrieve information based on meaning rather than exact text matches.
 
