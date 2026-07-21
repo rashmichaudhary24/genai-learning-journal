@@ -77,9 +77,9 @@ The initial embedding tells the model what the word is and where it exists in th
 However, a single embedding is not sufficient during attention because it must play three different roles simultaneously.
 The model therefore learns **three separate projections** of every embedding.
 
-* **Query (Q):** What kind of information am I looking for?
-* **Key (K):** What information can I offer to other tokens?
-* **Value (V):** If another token attends to me, what information should I contribute?
+* **Query (Q):** Whom should I listen to?
+* **Key (K):** Am I someone worth listening to?
+* **Value (V):** Here's the information I'll contribute if you choose me.
 
 Notice that these are **not** three different embeddings.
 
