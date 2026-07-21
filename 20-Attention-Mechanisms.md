@@ -60,7 +60,7 @@ Without attention, words would largely retain their generic meanings. With atten
 
 ---
 
-# **"How Self-Attention Works"**
+# **How Self-Attention Works**
 
 ## Every Token Begins with One Embedding
 
@@ -73,9 +73,8 @@ A token is a chunk of text. Depending on the tokenizer, it may represent:
 * or other text fragments
 
 Each token initially has a single learned embedding that captures its general meaning.
-
+The initial embedding tells the model what the word is and where it exists in the context.
 However, a single embedding is not sufficient during attention because it must play three different roles simultaneously.
-
 The model therefore learns **three separate projections** of every embedding.
 
 * **Query (Q):** What kind of information am I looking for?
