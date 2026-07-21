@@ -41,14 +41,13 @@ Modern Large Language Models such as GPT are based on the Transformer architectu
 
 ## Why Was It Invented?
 
-Before Transformers, sequence models processed tokens one after another.
+Earlier language models processed tokens one at a time.
 
-This sequential nature made training slow and made it difficult for models to capture relationships between words that were far apart in a sentence.
+This made training slower and made it difficult for models to capture relationships between words that were far apart in a sentence.
 
-The Transformer replaced recurrence with attention, allowing every token to directly examine every other relevant token in a single layer.
+The Transformer introduced the attention mechanism, allowing every token to directly examine every other relevant token.
 
-Because all tokens can be processed simultaneously, Transformer models are highly parallelizable during training.
-
+Because many tokens can be processed simultaneously, Transformers are highly parallelizable during training.
 ---
 
 ## High-Level Flow of Information
