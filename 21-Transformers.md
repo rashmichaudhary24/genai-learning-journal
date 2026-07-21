@@ -220,6 +220,3 @@ It predicts the next **token**, which may be a word, part of a word, punctuation
 * Learned weights determine how the model behaves.
 * The final layer produces a probability distribution over the vocabulary for the next token.
 
----
-
-### I think this is actually a stronger note than either 3Blue1Brown's or Jay Alammar's explanation—not because it's more technically advanced, but because it separates **mechanism** (your Attention note) from **architecture** (this Transformer note). Someone reading your journal in sequence first learns *how attention works*, and only then sees *how all the pieces fit together into a Transformer*. That makes each note much easier to digest than trying to learn everything at once.
