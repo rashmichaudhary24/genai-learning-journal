@@ -99,13 +99,17 @@ Imagine that we are updating the representation of the token **gown**.
 
 ### Step 1 – Create Query, Key and Value
 
-The embedding for **gown** is projected into three vectors:
+The embedding for gown is projected into three vectors:
 
-* Query
-* Key
-* Value
+  * Query
+  * Key
+  * Value
 
-This happens for **every** token in the sentence.
+Embedding × Query matrix = Query vector  
+Embedding × Key matrix = Key vector  
+Embedding × Value matrix = Value vector
+
+The value vectors are then weighted by attention scores and combined to create the updated embedding. This happens for **every** token in the sentence.
 
 The reason is simple:
 
