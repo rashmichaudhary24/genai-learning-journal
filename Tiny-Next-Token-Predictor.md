@@ -156,8 +156,6 @@ Almost all of the probability mass shifts towards the highest-scoring token.
 ![Temperature = 0.2](images/Temperature-0.2.png)
 
 ```
-[Insert bar chart here]
-```
 
 ### Observation
 
@@ -175,8 +173,6 @@ The model still has a preferred token but assigns meaningful probability to seve
 ![Temperature = 1.0](images/Temperature-1.png)
 
 ```
-[Insert bar chart here]
-```
 
 ### Observation
 
@@ -191,8 +187,6 @@ Increasing the temperature flattens the probability distribution.
 
 ![Temperature = 2.0](images/Temperature-2.png)
 
-```
-[Insert bar chart here]
 ```
 
 ### Observation
