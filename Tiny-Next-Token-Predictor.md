@@ -1,5 +1,3 @@
-
-
 # Tiny Next Token Predictor
 
 ## Objective
@@ -125,8 +123,6 @@ I plotted the resulting probability distribution as a bar chart.
 
 ![Next Token Probability Distribution](images/Next-Token-Probability-Distribution.png)
 
-```
-
 For my example, the model assigned the highest probabilities to:
 
 - mat
@@ -155,7 +151,6 @@ Almost all of the probability mass shifts towards the highest-scoring token.
 
 ![Temperature = 0.2](images/Temperature-0.2.png)
 
-
 ### Observation
 
 - One token dominates the distribution.
@@ -170,7 +165,6 @@ This is the default behaviour.
 The model still has a preferred token but assigns meaningful probability to several alternatives.
 
 ![Temperature = 1.0](images/Temperature-1.png)
-
 
 ### Observation
 
@@ -205,12 +199,12 @@ print(next_token)
 
 One detail that I found particularly interesting is that this does **not** always return the token with the highest probability.
 
-Instead, it performs **weighted random sampling**.
+Instead, it performs **weighted random sampling**, where every token has a chance of being selected according to its probability.
 
 For example:
 
 | Token | Probability |
-|--------|------------:|
+| :----- | ----------: |
 | mat | 39.8% |
 | tree | 21.9% |
 | roof | 14.7% |
@@ -221,11 +215,11 @@ This is exactly how modern language models generate text.
 
 ---
 
-## Putting It All Together 
+## Putting It All Together
 
 This experiment helped me visualise the final stage of LLM inference.
 
-```
+```text
 Prompt
     ↓
 Neural Network
@@ -267,7 +261,7 @@ That distinction became much easier to understand once I could see the probabili
 
 - Logits are raw scores, not probabilities.
 - Softmax converts logits into a probability distribution.
-- The probabilities always sum to 1.
+- The probabilities always sum to **1**.
 - Temperature controls how peaked or flat the probability distribution becomes.
 - Increasing the temperature increases randomness without changing the underlying logits.
 - The next token is sampled from the probability distribution rather than simply selecting the highest-scoring token.
