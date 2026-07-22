@@ -270,4 +270,4 @@ That distinction became much easier to understand once I could see the probabili
 
 The complete Jupyter Notebook for this experiment is available here:
 
-[Real LLM Next Token Probabilities Notebook](https://github.com/rashmichaudhary24/genai-learning-journal/blob/main/notebooks_Real-LLM-Next-Token-Probabilities.ipynb)
+[Real LLM Next Token Probabilities Notebook](https://github.com/rashmichaudhary24/genai-learning-journal/blob/main/Real-LLM-Next-Token-Probabilities.ipynb)
