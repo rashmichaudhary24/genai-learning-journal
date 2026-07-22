@@ -1,4 +1,6 @@
-Tiny Next Token Predictor
+
+
+# Tiny Next Token Predictor
 
 ## Objective
 
@@ -121,7 +123,7 @@ After applying Softmax:
 
 I plotted the resulting probability distribution as a bar chart.
 
-**Screenshot Placeholder – Temperature = 1.0**
+![Next Token Probability Distribution](images/Next-Token-Probability-Distribution.png)
 
 ```
 [Insert bar chart here]
@@ -153,7 +155,7 @@ At a low temperature, the model becomes extremely confident.
 
 Almost all of the probability mass shifts towards the highest-scoring token.
 
-**Screenshot Placeholder – Temperature = 0.2**
+![Temperature = 0.2](images/Temperature-0.2.png)
 
 ```
 [Insert bar chart here]
@@ -172,7 +174,7 @@ This is the default behaviour.
 
 The model still has a preferred token but assigns meaningful probability to several alternatives.
 
-**Screenshot Placeholder – Temperature = 1.0**
+![Temperature = 1.0](images/Temperature-1.png)
 
 ```
 [Insert bar chart here]
@@ -189,7 +191,7 @@ The model still has a preferred token but assigns meaningful probability to seve
 
 Increasing the temperature flattens the probability distribution.
 
-**Screenshot Placeholder – Temperature = 2.0**
+![Temperature = 2.0](images/Temperature-2.png)
 
 ```
 [Insert bar chart here]
@@ -231,7 +233,7 @@ This is exactly how modern language models generate text.
 
 ---
 
-## The Inference Pipeline
+## Putting It All Together 
 
 This experiment helped me visualise the final stage of LLM inference.
 
