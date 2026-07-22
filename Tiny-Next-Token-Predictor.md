@@ -126,8 +126,6 @@ I plotted the resulting probability distribution as a bar chart.
 ![Next Token Probability Distribution](images/Next-Token-Probability-Distribution.png)
 
 ```
-[Insert bar chart here]
-```
 
 For my example, the model assigned the highest probabilities to:
 
