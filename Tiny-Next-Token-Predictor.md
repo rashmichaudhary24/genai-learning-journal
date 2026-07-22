@@ -265,3 +265,9 @@ That distinction became much easier to understand once I could see the probabili
 - Temperature controls how peaked or flat the probability distribution becomes.
 - Increasing the temperature increases randomness without changing the underlying logits.
 - The next token is sampled from the probability distribution rather than simply selecting the highest-scoring token.
+
+## Interactive Notebook
+
+The complete Jupyter Notebook for this experiment is available here:
+
+[Real LLM Next Token Probabilities Notebook](https://github.com/rashmichaudhary24/genai-learning-journal/blob/main/notebooks_Real-LLM-Next-Token-Probabilities.ipynb)
