@@ -82,7 +82,7 @@ In other words:
 
 ## Why Training Is Expensive
 
-Training is computationally expensive because learning requires much more than generating predictions.
+Training is computationally expensive because learning requires far more computation than simply generating predictions.
 
 In addition to performing a forward pass, the model must:
 
