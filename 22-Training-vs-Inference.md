@@ -120,12 +120,43 @@ Since the model's weights continue to change, fine-tuning remains part of the tr
 
 ---
 
-## Closing Thoughts
+## Common Misconceptions
 
-Before studying this topic, I tended to think of training and inference as two separate activities.
+### **Inference means the model is still learning**
 
-What became clear today is that they are really two phases in the lifecycle of the same model.
+It is easy to assume that a model becomes smarter every time someone interacts with it. In reality, inference does not update the model's weights. The model simply applies what it learned during training to generate a response.
 
-The architecture remains the same throughout.
+---
 
-The difference is whether the model is still updating its weights or simply using the knowledge already encoded within them.
+### **Training and inference use different models**
+
+Training and inference are two phases in the lifecycle of the same model. The architecture remains the same; only the objective changes. During training, the model learns by updating its weights. During inference, it uses those learned weights to make predictions.
+
+---
+
+### **Inference is computationally free**
+
+Inference is significantly less computationally expensive than training, but it is not free. Every response still requires the model to perform a forward pass through billions of parameters. Larger models and longer prompts therefore require more computational resources than smaller models and shorter prompts.
+
+---
+
+## Key Takeaways
+
+- Training and inference are two phases in the lifecycle of the same model.
+- During training, the model learns by updating its weights.
+- During inference, the model uses its learned weights to generate predictions.
+- A forward pass occurs during both training and inference.
+- A backward pass and backpropagation occur only during training.
+- Training is computationally expensive because it involves repeated prediction, error calculation, backpropagation, and weight updates across massive datasets.
+- Inference is comparatively cheaper because it only requires a forward pass using fixed weights.
+
+---
+
+## Questions I Still Have
+
+- How are billions of weights initially assigned before training begins?
+- How does backpropagation determine exactly which weights should be updated and by how much?
+- How are learning rates chosen, and what happens if they are too high or too low?
+- How do GPUs accelerate training compared to CPUs?
+- Why do some models require weeks or months to train while others can be fine-tuned in a few hours?
+- What techniques make inference faster and less expensive without significantly reducing model quality?
