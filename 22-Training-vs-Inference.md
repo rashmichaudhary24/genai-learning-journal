@@ -1,198 +1,164 @@
-Training vs. Inference
-Resource(s) Studied
-Andrej Karpathy – Large Language Models: LLMs Explained
-NVIDIA – What’s the Difference Between Deep Learning Training and Inference?
-Google Developers – Intro to Inference
-Jay Alammar – The Illustrated Transformer
-In One Sentence
+# Training vs. Inference
 
-Training is how a model learns its weights from data, while inference is how a trained model uses those fixed weights to generate an output for a new input.
+## Resource(s) Studied
 
-What Is the Difference?
+- Andrej Karpathy – *Large Language Models: LLMs Explained*
+- Jay Alammar – *The Illustrated Transformer*
+- NVIDIA – *What's the Difference Between Deep Learning Training and Inference?*
+- Google Developers – *Intro to Inference*
 
-A large language model has two very different phases in its life:
+---
 
-Training — the model learns patterns from large amounts of data.
-Inference — the model applies what it has already learned to answer a prompt.
+## Learning Objectives
 
-That distinction is simple, but it explains almost everything about why AI systems behave the way they do.
+After completing this note, you should be able to:
 
-During training, the model is being built.
+- distinguish between training and inference
+- explain why training is significantly more computationally expensive than inference
+- differentiate between the forward and backward passes
+- explain where fine-tuning fits into the model lifecycle
 
-During inference, the model is being used.
+---
 
-What Happens During Training?
+## Introduction
 
-Training is the phase in which the model adjusts its internal parameters, or weights, so that it becomes better at predicting the right output.
+A large language model operates in two distinct phases:
 
-At a high level, the process looks like this:
+1. **Training**, during which the model learns its parameters (weights) from data.
+2. **Inference**, during which the trained model applies those learned parameters to generate predictions for previously unseen inputs.
 
-the model sees an example
-it makes a prediction
-the prediction is compared with the correct answer
-the error is measured
-the model updates its weights to reduce that error next time
+Although both phases use the same neural network architecture, they serve fundamentally different purposes. The key distinction is whether the model's parameters are being **updated**.
 
-This repeated correction process is how the model gradually learns.
+---
 
-Training is where the model “absorbs” patterns from the data.
+## Training vs. Inference
 
-That is why training is often described as the learning phase.
+| Training | Inference |
+|----------|-----------|
+| Learns from data | Applies learned knowledge |
+| Updates model weights | Uses fixed model weights |
+| Requires forward and backward passes | Requires only a forward pass |
+| Optimises model parameters | Generates predictions |
+| Performed occasionally | Performed every time the model is used |
+| Computationally expensive | Comparatively inexpensive |
 
-What Happens During Inference?
+---
 
-Inference is what happens after training, when the model is asked to produce an answer for a new prompt.
+## Training
 
-At this stage:
+Training is the process through which a model learns statistical patterns from large datasets.
 
-the weights are already fixed
-the model does not learn new patterns from your question
-it simply performs a forward pass through the network
-it produces a probability distribution over possible next tokens
-a token is selected, and the process repeats until the response is complete
+For each training example, the model:
 
-So when you chat with a model, it is not “studying” your prompt in the way it studied its training data.
+1. performs a forward pass to generate a prediction,
+2. compares that prediction with the expected output,
+3. calculates the prediction error (loss),
+4. propagates that error backwards through the network, and
+5. updates its weights to reduce future error.
 
-It is using existing knowledge to generate a response.
+This process is repeated across enormous datasets for many iterations until the model converges on a set of weights that generalise well to unseen data.
 
-Why Is Training Expensive?
+Training determines **what the model knows**.
 
-Training is expensive because the model is doing much more work than it does during inference.
+---
 
-The main reasons are:
+## Inference
 
-1. The model must process massive amounts of data
+Inference is the process of using a trained model to generate outputs for new inputs.
 
-Training usually involves huge datasets and many repeated passes over them.
+When a user submits a prompt:
 
-2. The model must compute and store gradients
+1. the prompt is processed by the model,
+2. the model performs a forward pass using its learned weights,
+3. probability scores are computed for possible next tokens,
+4. one token is selected,
+5. the process repeats until the response is complete.
 
-To learn, the model must figure out how each weight should change.
+Unlike training, inference does **not** modify the model's parameters.
 
-That means it has to track error signals and calculate gradients.
+Inference determines **how the model applies what it has already learned**.
 
-3. The model must update billions of parameters
+---
 
-Modern language models contain millions or billions of weights.
+## Why Training Is Expensive
 
-Even tiny changes must be coordinated across the whole network.
+Training is computationally intensive because it requires much more than simply generating predictions.
 
-4. Training needs more memory and compute
+During training, the system must:
 
-During training, the system must keep extra information around for backpropagation.
+- process enormous datasets repeatedly,
+- compute prediction errors,
+- calculate gradients,
+- store intermediate activations,
+- perform backpropagation, and
+- update billions of parameters.
 
-That makes training much heavier than simple text generation.
+These operations require substantial GPU memory, compute capacity, and time.
 
-This is why training often requires large clusters of GPUs and long runtimes.
+Modern foundation models are therefore trained using large GPU clusters over weeks or even months.
 
-Why Is Inference Cheaper?
+---
 
-Inference is cheaper because the hard learning work has already been done.
+## Why Inference Is Comparatively Cheap
 
-The model no longer needs to:
+Once training has finished, the model's parameters remain fixed.
 
-compute gradients
-update weights
-store training-state information
-compare outputs with labels
-run backpropagation
+Inference therefore avoids several expensive operations:
 
-Instead, it only needs to do a forward pass and generate the next token.
+- no gradient computation,
+- no backpropagation,
+- no weight updates,
+- no optimisation step.
 
-That is still computationally real work, but it is much lighter than training.
+The model simply performs a forward pass to predict the next token.
 
-So a chat response can feel instant compared with the weeks or months that may have gone into creating the model behind it.
+Although inference still requires considerable computation—especially for large models—it is significantly less demanding than training because learning is no longer taking place.
 
-Forward Pass vs. Backward Pass
+---
 
-This is one of the cleanest ways to think about the difference.
+## Forward Pass vs. Backward Pass
 
-Forward pass
+The distinction between training and inference can be understood in terms of the computations performed.
 
-The input moves through the network and the model produces an output.
+### Forward Pass
 
-This happens during both training and inference.
+The input moves through the neural network to produce an output.
 
-Backward pass
+Occurs during:
 
-The error is sent backward through the network so the model can adjust its weights.
+- Training
+- Inference
 
-This happens during training only.
+### Backward Pass
 
-So:
+The prediction error is propagated backwards through the network to determine how the model's weights should be updated.
 
-training = forward pass + backward pass + weight updates
-inference = forward pass only
+Occurs during:
 
-That one distinction is doing a lot of work.
+- Training only
 
-Where Does Fine-Tuning Fit?
+Consequently,
 
-Fine-tuning is still training.
+- **Training = Forward Pass + Backward Pass + Weight Updates**
+- **Inference = Forward Pass**
 
-It is just a smaller, more targeted form of training where a pretrained model is adapted for a specific task, audience, or behavior.
+---
 
-For example, a base model can be fine-tuned to behave more like:
+## Fine-Tuning
 
-a helpful assistant
-a domain specialist
-a customer support agent
-a company-specific knowledge assistant
+Fine-tuning is a specialised form of training performed after pre-training.
 
-So fine-tuning does not replace training.
+Instead of learning from scratch, an existing model is trained further on a smaller, task-specific dataset so that it performs better for a particular domain or application.
 
-It is training after training.
+The underlying process remains training because the model's parameters continue to be updated.
 
-Where Does RLHF Fit?
+---
 
-RLHF, or Reinforcement Learning from Human Feedback, is another training stage used to shape model behavior.
+## Key Takeaways
 
-It helps align the model more closely with human preferences, helpfulness, and safety.
-
-You do not need to remember every detail of RLHF for now.
-
-The important idea is simply this:
-
-RLHF changes the model during training, not during inference.
-
-Why This Matters in Practice
-
-This distinction matters because it affects:
-
-cost
-latency
-hardware requirements
-deployment decisions
-product design
-model strategy
-
-For a business, the question is often not “Can we make a model?”
-It is “Can we afford to train it, and can we serve it efficiently at scale?”
-
-That is why training and inference are discussed separately in AI strategy conversations.
-
-Common Misconceptions
-“ChatGPT is learning from my message in real time.”
-
-Not exactly.
-
-Your message is used as input for generating a response, but that is not the same as updating the model’s weights.
-
-“Inference means the model is thinking like a human.”
-
-Not really.
-
-Inference means the model is applying learned parameters to produce an output.
-
-“Training and inference are just the same thing with different names.”
-
-No.
-
-They use the same model, but the purpose and computation are different.
-
-Key Takeaways
-Training is when a model learns its weights from data.
-Inference is when a trained model uses those fixed weights to answer a prompt.
-Training is expensive because it needs gradients, backpropagation, and lots of compute.
-Inference is cheaper because it only needs a forward pass.
-Fine-tuning and RLHF are training stages, not inference stages.
+- Training and inference use the same model architecture but serve different purposes.
+- Training learns model parameters; inference applies them.
+- Training updates weights; inference keeps them fixed.
+- Training requires both forward and backward passes.
+- Inference requires only a forward pass.
+- Fine-tuning is an additional stage of training rather than a separate process.
