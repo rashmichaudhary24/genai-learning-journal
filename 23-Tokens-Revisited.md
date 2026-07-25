@@ -65,19 +65,6 @@ A token can be:
 * an emoji
 * or another frequently occurring piece of text.
 
-One of the biggest misconceptions is that a token is simply a word.
-
-It isn't.
-
-A token can be:
-
-* an entire word
-* part of a word
-* punctuation
-* part of a number
-* an emoji
-* or another frequently occurring piece of text.
-
 The examples below illustrate how token count depends far more on the tokenizer's learned vocabulary than on the number of characters.
 
 | Text | Example Tokenization | Number of Tokens | Number of Characters | Why? |
