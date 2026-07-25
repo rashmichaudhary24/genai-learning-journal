@@ -106,7 +106,7 @@ For example,
 Artificial Intelligence
 ```
 
-would become twenty-three individual characters instead of just a few meaningful pieces.
+would become twenty-three individual characters instead of just two meaningful pieces.
 
 Subword tokenization provides a practical balance between these two extremes.
 
