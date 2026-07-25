@@ -136,6 +136,7 @@ Modern tokenizers typically process text in several stages.
 4. **Token IDs** assign each token a numerical identifier that can be converted into an embedding.
 
 Although different models implement these stages differently, the overall pipeline is broadly similar.
+
 ---
 # Character Count ≠ Token Count
 
