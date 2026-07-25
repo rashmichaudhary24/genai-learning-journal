@@ -17,7 +17,7 @@
 
 # In One Sentence
 
-Language models do not read words or characters directly—they first convert text into discrete units called **tokens**, and different tokenizers may split the same text differently.
+Text-based language models do not read words or characters directly. They first convert text into discrete units called **tokens**, and different tokenizers may split the same text differently.
 
 ---
 
