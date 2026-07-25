@@ -114,9 +114,7 @@ Subword tokenization provides a practical balance between these two extremes.
 
 # Byte Pair Encoding (BPE)
 
-Most modern tokenizers use some form of **subword tokenization**.
-
-One of the most influential techniques is **Byte Pair Encoding (BPE).**
+Most modern tokenizers use **subword tokenization**, often implemented using **Byte Pair Encoding (BPE)** or one of its variants.
 
 Instead of storing every possible word, BPE learns the most frequently occurring pieces of text.
 
