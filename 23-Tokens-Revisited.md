@@ -29,7 +29,7 @@ Revisiting the topic helped me understand **how** modern tokenizers work, **why*
 More importantly, it connected tokenization to the rest of the LLM pipeline—from embeddings and positional encoding to the attention mechanism.
 Figure 1 shows the high-level journey that text takes before it becomes an LLM's response.
 
-![Figure 1. From Text to LLM Output — A high-level view of how text is processed inside an LLM.](images/llm-processing-pipeline.png)
+![Figure 1. From Text to LLM Output — A high-level view of how text is processed inside an LLM.](images/LLM-Processing-Pipeline.png)
 
 Computers cannot reason over raw text directly.
 
