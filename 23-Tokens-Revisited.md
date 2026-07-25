@@ -2,12 +2,17 @@
 
 ## Resource(s) Studied
 
-* OpenAI Cookbook – *How to Count Tokens with tiktoken*
-* Hugging Face NLP Course – *Tokenization*
-* OpenAI Tokenizer
-* Jay Alammar – *The Illustrated GPT-2* (Tokenization overview)
-* Andrej Karpathy – *Let's Build the GPT Tokenizer*
+* OpenAI Tokenizer  
+  https://platform.openai.com/tokenizer
 
+* Jay Alammar — *The Illustrated GPT-2*  
+  https://jalammar.github.io/illustrated-gpt2/
+
+* Hugging Face NLP Course — *Tokenization*  
+  https://huggingface.co/learn/nlp-course/chapter6/1
+
+* OpenAI Cookbook — *How to Count Tokens with tiktoken*  
+  https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken
 ---
 
 # In One Sentence
@@ -44,17 +49,37 @@ A token can be:
 * an emoji
 * or another frequently occurring piece of text.
 
-For example:
+One of the biggest misconceptions is that a token is simply a word.
 
-| Text | Possible Tokenization |
-|------|------------------------|
-| Hello! | `[Hello] [!]` |
-| Artificial Intelligence | `[Artificial] [Intelligence]` |
-| RashmiChaudhary24 | `[Rash] [mi] [Chaud] [hary] [24]` |
-| ₹25,00,000 | `[₹] [25] [,] [00] [,] [000]` |
+It isn't.
 
-These are **illustrative examples**. The exact token boundaries depend on the tokenizer being used.
+A token can be:
 
+* an entire word
+* part of a word
+* punctuation
+* part of a number
+* an emoji
+* or another frequently occurring piece of text.
+
+The examples below illustrate how token count depends far more on the tokenizer's learned vocabulary than on the number of characters.
+
+| Text | Example Tokenization | Number of Tokens | Number of Characters | Why? |
+|------|----------------------|-----------------:|---------------------:|------|
+| hippopotomonstrosesquippedaliophobia | `[hip] [pop] [ot] [omon] [st] [ros] [es] [qu] [ipped] [ali] [ophobia]` | 11 | 36 | Long word |
+| Hello | `[Hello]` | 1 | 5 | Common word |
+| Hello! | `[Hello] [!]` | 2 | 6 | Punctuation separated |
+| Disproportionate Engorgement | `[Dis] [pro] [portion] [ate] [ Eng] [org] [ement]` | 7 | 28 | Rare phrase |
+| Artificial Intelligence | `[Artificial] [ Intelligence]` | 2 | 23 | Common phrase |
+| William Shakespeare | `[William] [ Shakespeare]` | 2 | 19 | Extremely common phrase in training data |
+| Donald Trump | `[Donald] [ Trump]` | 2 | 12 | Famous name |
+| Prem Kumar | `[Prem] [ Kumar]` | 2 | 10 | Common name |
+| Anubha Budhalakoti | `[An] [ub] [ha] [ Bud] [hal] [ak] [oti]` | 7 | 18 | Rare name |
+| RashmiChaudhary24 | `[R] [ash] [mi] [Ch] [aud] [h] [ary] [24]` | 8 | 17 | Rare name + digits |
+| ₹25,00,000 | `[₹] [25] [,] [00] [,] [000]` | 6 | 10 | Symbols and commas |
+| 🤖 | *(varies by tokenizer)* | 2 | 2 | One visible character ≠ one token |
+
+> **Note:** These token boundaries are illustrative and are based on one tokenizer. Different models may split the same text differently.
 ---
 
 # Why Not Just Split by Words?
