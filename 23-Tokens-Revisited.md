@@ -126,6 +126,17 @@ In other words, the tokenizer learns **reusable building blocks** rather than me
 
 ---
 
+## The Tokenization Pipeline
+
+Modern tokenizers typically process text in several stages.
+
+1. **Normalization** standardizes the text into a consistent form.
+2. **Pre-tokenization** performs obvious splits such as separating punctuation or numbers.
+3. **Subword tokenization** (using BPE or a related algorithm) breaks text into learned subword units.
+4. **Token IDs** assign each token a numerical identifier that can be converted into an embedding.
+
+Although different models implement these stages differently, the overall pipeline is broadly similar.
+---
 # Character Count ≠ Token Count
 
 One of the most interesting observations was that token count is **not directly proportional** to character count.
