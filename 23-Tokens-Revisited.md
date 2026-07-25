@@ -22,23 +22,14 @@ Language models perform mathematical operations, not linguistic ones. Tokenizati
 ---
 
 # Why Revisit Tokens?
-Earlier, I learned what tokens are and why they matter for LLMs. Revisiting the topic helped me understand how modern tokenizers work, why models tokenize the same text differently, and why character count is only loosely related to token count. This is to understand how tokens form the bridge between human language and mathematical computation.
+Earlier, I learned what tokens are and why they matter for LLMs.
 
-Text
-   ↓
-Tokenizer
-   ↓
-Tokens
-   ↓
-Token IDs
-   ↓
-Embeddings
-   ↓
-Positional Encoding
-   ↓
-Attention Mechanism
-   ↓
-LLM Output
+Revisiting the topic helped me understand **how** modern tokenizers work, **why** different models tokenize the same text differently, and **why** character count is only loosely related to token count.
+
+More importantly, it connected tokenization to the rest of the LLM pipeline—from embeddings and positional encoding to the attention mechanism.
+Figure 1 shows the high-level journey that text takes before it becomes an LLM's response.
+
+[Figure 1. From Text to LLM Output — A high-level view of how text is processed inside an LLM.](images/llm-processing-pipeline.png)
 
 Computers cannot reason over raw text directly.
 
