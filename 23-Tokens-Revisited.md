@@ -17,19 +17,35 @@
 
 # In One Sentence
 
-Text-based language models do not read words or characters directly. They first convert text into discrete units called **tokens**, and different tokenizers may split the same text differently.
+Language models perform mathematical operations, not linguistic ones. Tokenization is the step that converts human-readable text into a representation the model can compute on.
 
 ---
 
 # Why Do We Need Tokens?
 
-Language models work with numbers, not text.
+Text
+   ↓
+Tokenizer
+   ↓
+Tokens
+   ↓
+Token IDs
+   ↓
+Embeddings
+   ↓
+Positional Encoding
+   ↓
+Attention Mechanism
+   ↓
+LLM Output
 
-Before a model can process a sentence, the text must first be converted into smaller pieces called **tokens**, which are then mapped to numerical IDs.
+Computers cannot reason over raw text directly.
 
-These tokens become the basic units that flow through embeddings, attention mechanisms, and every other stage of the model.
+Tokenization converts text into manageable pieces that can be assigned numerical IDs and represented as vectors (embeddings).
 
-Without tokenization, an LLM cannot process text at all.
+These token embeddings then become the inputs processed by the Transformer's attention mechanism.
+
+In other words, tokens form the bridge between human language and mathematical computation.
 
 ---
 
