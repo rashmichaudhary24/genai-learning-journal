@@ -21,7 +21,8 @@ Language models perform mathematical operations, not linguistic ones. Tokenizati
 
 ---
 
-# Why Do We Need Tokens?
+# Why Revisit Tokens?
+Earlier, I learned what tokens are and why they matter for LLMs. Revisiting the topic helped me understand how modern tokenizers work, why models tokenize the same text differently, and why character count is only loosely related to token count. This is to understand how tokens form the bridge between human language and mathematical computation.
 
 Text
    ↓
@@ -44,8 +45,6 @@ Computers cannot reason over raw text directly.
 Tokenization converts text into manageable pieces that can be assigned numerical IDs and represented as vectors (embeddings).
 
 These token embeddings then become the inputs processed by the Transformer's attention mechanism.
-
-In other words, tokens form the bridge between human language and mathematical computation.
 
 ---
 
