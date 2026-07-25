@@ -15,7 +15,7 @@
 
 # In One Sentence
 
-Reasoning models are language models that spend more time thinking through complex problems before responding.
+Modern reasoning models are also Transformer-based language models, but they are designed to analyse a problem before generating an answer.
 
 ---
 
