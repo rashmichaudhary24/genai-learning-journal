@@ -56,16 +56,19 @@ Disadvantages:
 
 Stateful is like a normal relationship.
 
-You remember your first meeting, your first date, your engagement...
-Each new experience builds on the previous ones.
+You remember the first time you met, your first date, your engagement...
+Every experience builds on the last one.
 
 Stateless is like *50 First Dates*.
 
 Every morning the girl wakes up with no memory of yesterday.
+Before the relationship can continue, the man has to replay the video that brings her up to date.
 
-Before continuing the relationship, the man has to replay the video that brings her up to date.
+![Promotional image from *50 First Dates* showing a man and woman on a beach](images/Stateful-vs-Stateless.jpg)
 
-Only then can they continue where they left off.
+*Illustration: Promotional image from **50 First Dates**, used here as a visual analogy to explain the difference between stateful and stateless systems.*
+
+Only then can they continue where they left off. 
 
 Likewise, stateless AI systems require you to resend all relevant context before they can continue helping you.
 
